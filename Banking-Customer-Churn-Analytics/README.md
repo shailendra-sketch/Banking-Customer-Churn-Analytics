@@ -2,35 +2,45 @@
 
 
 
+An end-to-end customer churn analytics project using \*\*Python, SQL, and Power BI\*\* to analyze banking customer behavior, identify churn patterns, segment customers by risk, and provide data-driven areas for retention analysis.
+
+
+
+\---
+
+
+
 \## Project Overview
 
 
 
-This project analyzes customer churn for a banking customer dataset containing 10,000 customers.
+Customer churn is a major business challenge for financial institutions because losing customers can reduce revenue, product usage, and long-term customer value.
 
 
 
-The objective is to identify customer segments associated with higher churn rates, understand major churn patterns, and provide data-driven retention insights.
+This project analyzes a dataset of \*\*10,000 banking customers\*\* to understand:
 
 
 
-The project combines:
+\- Overall customer churn
+
+\- Churn patterns across countries and genders
+
+\- Active vs inactive customer behavior
+
+\- Relationship between product ownership and churn
+
+\- Credit card ownership and churn
+
+\- Balance-based customer segments
+
+\- Customer risk segmentation
+
+\- Business areas that may require retention-focused investigation
 
 
 
-\- Python
-
-\- SQL
-
-\- Power BI
-
-\- Pandas
-
-\- Data visualization
-
-\- Business analysis
-
-\- Git \& GitHub
+The project combines \*\*Python for data analysis and preparation, SQL for structured analysis, and Power BI for interactive business reporting\*\*.
 
 
 
@@ -42,29 +52,25 @@ The project combines:
 
 
 
-Customer churn can reduce revenue and increase the cost of acquiring new customers.
+The objective is to answer key business questions such as:
 
 
 
-The goal of this analysis is to answer questions such as:
+1\. What percentage of customers are churning?
 
+2\. Which countries have the highest observed churn?
 
+3\. How does customer activity relate to churn?
 
-\- What percentage of customers are churning?
+4\. Does the number of products held by a customer relate to churn?
 
-\- Which countries have higher churn?
+5\. Are there meaningful differences in churn by gender?
 
-\- Does customer activity affect churn?
+6\. Does credit card ownership show a meaningful difference in churn?
 
-\- Does the number of products relate to churn?
+7\. Which balance segments have higher observed churn?
 
-\- Are there differences in churn by gender?
-
-\- Does credit card ownership relate to churn?
-
-\- How does customer balance relate to churn?
-
-\- Which customer segments should receive additional retention attention?
+8\. Which customers can be prioritized for further retention analysis?
 
 
 
@@ -76,11 +82,11 @@ The goal of this analysis is to answer questions such as:
 
 
 
-The dataset contains 10,000 banking customers and 12 original variables.
+The dataset contains \*\*10,000 customer records\*\* and \*\*12 attributes\*\*.
 
 
 
-\### Main Features
+\### Features
 
 
 
@@ -88,29 +94,29 @@ The dataset contains 10,000 banking customers and 12 original variables.
 
 |---|---|
 
-| customer\_id | Unique customer identifier |
+| `customer\_id` | Unique customer identifier |
 
-| credit\_score | Customer credit score |
+| `credit\_score` | Customer credit score |
 
-| country | Customer country |
+| `country` | Customer country |
 
-| gender | Customer gender |
+| `gender` | Customer gender |
 
-| age | Customer age |
+| `age` | Customer age |
 
-| tenure | Years with the bank |
+| `tenure` | Number of years with the bank |
 
-| balance | Account balance |
+| `balance` | Account balance |
 
-| products\_number | Number of bank products |
+| `products\_number` | Number of bank products owned |
 
-| credit\_card | Credit card ownership indicator |
+| `credit\_card` | Credit card ownership indicator |
 
-| active\_member | Active membership indicator |
+| `active\_member` | Active membership indicator |
 
-| estimated\_salary | Estimated customer salary |
+| `estimated\_salary` | Estimated customer salary |
 
-| churn | Customer churn indicator |
+| `churn` | Churn indicator: 1 = Churned, 0 = Retained |
 
 
 
@@ -122,23 +128,7 @@ The dataset contains 10,000 banking customers and 12 original variables.
 
 
 
-The dataset was checked for:
-
-
-
-\- Missing values
-
-\- Duplicate rows
-
-\- Duplicate customer IDs
-
-\- Data types
-
-\- Binary field validity
-
-\- Numeric distributions
-
-\- Categorical distributions
+Initial data-quality analysis was performed using Python.
 
 
 
@@ -146,387 +136,27 @@ The dataset was checked for:
 
 
 
-\- Rows: 10,000
+\- \*\*Rows:\*\* 10,000
 
-\- Columns: 12
+\- \*\*Columns:\*\* 12
 
-\- Missing values: 0
+\- \*\*Missing values:\*\* 0
 
-\- Duplicate rows: 0
+\- \*\*Duplicate rows:\*\* 0
 
-\- Duplicate customer IDs: 0
+\- \*\*Duplicate customer IDs:\*\* 0
 
-\- Overall churn rate: 20.37%
 
 
+The dataset was checked for structural quality before performing the business analysis.
 
-\---
 
 
-
-\## SQL Analysis
-
-
-
-SQL was used to analyze:
-
-
-
-1\. Overall customer churn
-
-2\. Churn by country
-
-3\. Churn by gender
-
-4\. Churn by active membership
-
-5\. Churn by number of products
-
-6\. Churn by credit card ownership
-
-7\. Churn by balance segment
-
-
-
-SQL outputs are stored in:
-
-
-
-`reports/sql\_analysis\_report.md`
-
-
-
-\---
-
-
-
-\## Key Findings
-
-
-
-\### Overall Churn
-
-
-
-\- Total customers: 10,000
-
-\- Churned customers: 2,037
-
-\- Retained customers: 7,963
-
-\- Churn rate: 20.37%
-
-
-
-\### Country
-
-
-
-Germany has the highest observed churn rate:
-
-
-
-\- Germany: 32.44%
-
-\- Spain: 16.67%
-
-\- France: 16.15%
-
-
-
-\### Membership Activity
-
-
-
-Inactive customers show a higher observed churn rate:
-
-
-
-\- Inactive: 26.85%
-
-\- Active: 14.27%
-
-
-
-\### Number of Products
-
-
-
-Observed churn rates:
-
-
-
-\- 1 product: 27.71%
-
-\- 2 products: 7.58%
-
-\- 3 products: 82.71%
-
-\- 4 products: 100.00%
-
-
-
-The three- and four-product groups are relatively small, so these percentages should be interpreted alongside customer counts.
-
-
-
-\### Gender
-
-
-
-\- Female: 25.07%
-
-\- Male: 16.46%
-
-
-
-\### Credit Card Ownership
-
-
-
-\- Has credit card: 20.18%
-
-\- No credit card: 20.81%
-
-
-
-The difference is small, suggesting that credit card ownership alone is not a strong churn differentiator in this dataset.
-
-
-
-\### Balance
-
-
-
-Observed churn rates by balance segment:
-
-
-
-\- Zero Balance: 13.82%
-
-\- Below 50K: 34.67%
-
-\- 50K-100K: 19.88%
-
-\- 100K-150K: 25.77%
-
-\- 150K+: 23.12%
-
-
-
-The Below 50K group contains only 75 customers, so its churn percentage should be interpreted with its smaller sample size in mind.
-
-
-
-\---
-
-
-
-\## Customer Risk Segmentation
-
-
-
-A rule-based customer segmentation model was created using:
-
-
-
-\- Active membership
-
-\- Number of products
-
-\- Age
-
-\- Credit score
-
-\- Account balance
-
-
-
-Customers were assigned to:
-
-
-
-\- High Risk
-
-\- Medium Risk
-
-\- Low Risk
-
-
-
-This segmentation is designed as an interpretable business-analysis framework rather than a machine-learning prediction model.
-
-
-
-The segmented dataset is stored in:
-
-
-
-`data/processed/customer\_segments.csv`
-
-
-
-\---
-
-
-
-\## Power BI Dashboard
-
-
-
-The Power BI dashboard provides an interactive view of:
-
-
-
-\- Total customers
-
-\- Churned customers
-
-\- Churn rate
-
-\- Average balance
-
-\- Average credit score
-
-\- Churn rate by country
-
-\- Churn rate by membership status
-
-\- Churn rate by number of products
-
-\- Churn rate by gender
-
-\- Churn rate by balance segment
-
-
-
-Interactive slicers allow analysis by:
-
-
-
-\- Country
-
-\- Gender
-
-\- Membership status
-
-
-
-Dashboard file:
-
-
-
-`dashboard/banking\_customer\_churn\_dashboard.pbix`
-
-
-
-\---
-
-
-
-\## Business Recommendations
-
-
-
-Based on the observed patterns:
-
-
-
-1\. Investigate the high churn rate observed in Germany.
-
-2\. Develop engagement and reactivation strategies for inactive customers.
-
-3\. Investigate customers with three or more products to understand the reasons behind their high observed churn.
-
-4\. Explore the factors associated with the higher churn rate among female customers.
-
-5\. Investigate the 100K-150K balance segment because it combines a relatively high churn rate with a large customer population.
-
-6\. Avoid using credit card ownership as a standalone churn targeting variable because the observed difference is small.
-
-
-
-These recommendations identify areas for further investigation rather than establishing causal relationships.
-
-
-
-\---
-
-
-
-\## Project Structure
+Generated report:
 
 
 
 ```text
 
-Banking-Customer-Churn-Analytics/
-
-│
-
-├── data/
-
-│   ├── raw/
-
-│   │   └── bank\_customer\_churn.csv
-
-│   │
-
-│   └── processed/
-
-│       ├── banking\_churn.db
-
-│       ├── customer\_segments.csv
-
-│       └── powerbi\_customer\_churn.csv
-
-│
-
-├── sql/
-
-│   └── 01\_customer\_churn\_analysis.sql
-
-│
-
-├── src/
-
-│   ├── data\_quality.py
-
-│   ├── create\_database.py
-
-│   ├── run\_sql\_analysis.py
-
-│   ├── exploratory\_analysis.py
-
-│   ├── customer\_segmentation.py
-
-│   ├── segment\_visualization.py
-
-│   └── prepare\_powerbi\_data.py
-
-│
-
-├── reports/
-
-│   ├── data\_quality\_report.md
-
-│   ├── sql\_analysis\_report.md
-
-│   └── figures/
-
-│
-
-├── dashboard/
-
-│   └── banking\_customer\_churn\_dashboard.pbix
-
-│
-
-├── docs/
-
-│
-
-├── README.md
-
-└── .gitignore
+reports/data\_quality\_report.md
 
